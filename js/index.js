@@ -47,3 +47,21 @@ In tempor enim ut malesuada fermentum. Sed vitae ultricies libero. Nullam feugia
 
 console.log(paragraph.split(" ").length - 1);
 console.log(paragraph.split(" et ").length - 1);
+
+function removeAllNonAlpha(str) {
+  return str.replaceAll(/[^a-z]/gi, "");
+}
+function isPalindrome(str) {
+  // A man, a plan, a canal, Panama!
+  const cleanStr = removeAllNonAlpha(str).toLowerCase();
+  // amanaplanacanalpanama
+  const length = cleanStr.length;
+  for (let i = 0; i < length / 2; i++) {
+    if (cleanStr[i] !== cleanStr[length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
+const phraseToCheck = "A man, a plan, a canal, Panama!";
+console.log(isPalindrome(phraseToCheck));
